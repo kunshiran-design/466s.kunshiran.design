@@ -5,6 +5,7 @@ import classNames from 'classnames'
 
 import Squid from './Squid'
 import Octopus from './Octopus'
+import ColorPicker from './ColorPicker'
 
 export const IconGenerator: React.FC = () => {
   const imageRef = useRef<HTMLDivElement>(null)
@@ -35,22 +36,17 @@ export const IconGenerator: React.FC = () => {
   const handleChangeIconType: ChangeEventHandler<HTMLInputElement> =
     useCallback((e) => setIconType(e.target.value), [])
 
-  const handleChangeBgColor: ChangeEventHandler<HTMLInputElement> = useCallback(
-    (e) => {
-      setBgColor(e.target.value)
-    },
-    [],
-  )
+  const handleChangeBgColor = useCallback((val: string) => {
+    setBgColor(val)
+  }, [])
 
-  const handleChangeHairColor: ChangeEventHandler<HTMLInputElement> =
-    useCallback((e) => {
-      setHairColor(e.target.value)
-    }, [])
+  const handleChangeHairColor = useCallback((val: string) => {
+    setHairColor(val)
+  }, [])
 
-  const handleChangeEyeColor: ChangeEventHandler<HTMLInputElement> =
-    useCallback((e) => {
-      setEyeColor(e.target.value)
-    }, [])
+  const handleChangeEyeColor = useCallback((val: string) => {
+    setEyeColor(val)
+  }, [])
 
   return (
     <div>
@@ -77,31 +73,24 @@ export const IconGenerator: React.FC = () => {
       </div>
 
       {/* 色選択 */}
-      <div>
+      <div className={classNames('grid gap-4')}>
         <label>
-          <input type="color" value={bgColor} onChange={handleChangeBgColor} />
           <span>背景色</span>
+          <ColorPicker defaultValue={bgColor} onChange={handleChangeBgColor} />
         </label>
-        <label>
-          <input
-            className={classNames(
-              'appearance-none bg-transparent w-[100px] h-[100px] border-none cursor-pointer rounded-[50%]',
-              '[&::--webkit-color-swatch]:rounded-[50%]',
-              '[&::--moz-color-swatch]:rounded-[50%]',
-            )}
-            type="color"
-            value={hairColor}
+        <label className={classNames('grid gap-2')}>
+          <span>ゲソ色</span>
+          <ColorPicker
+            defaultValue={hairColor}
             onChange={handleChangeHairColor}
           />
-          <span>ゲソ色</span>
         </label>
         <label>
-          <input
-            type="color"
-            value={eyeColor}
+          <span>目の色</span>
+          <ColorPicker
+            defaultValue={eyeColor}
             onChange={handleChangeEyeColor}
           />
-          <span>目の色</span>
         </label>
       </div>
 
