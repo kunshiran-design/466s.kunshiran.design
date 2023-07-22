@@ -1,17 +1,17 @@
 ---
 export interface Props {
-  title?: string;
+  title?: string
 }
 
-const BASE_TITLE = "466S LOOKBOOK @C102:T-13b";
-const BASE_URL = "466s.kunshiran.design";
+const BASE_TITLE = '466S LOOKBOOK @C102_T-13b'
+const BASE_URL = '466s.kunshiran.design'
 
-const { title } = Astro.props;
+const { title } = Astro.props
 const meta = {
   title: title ? `title | ${BASE_TITLE}` : BASE_TITLE,
   description:
-    "スプラトゥーンをテーマにしたファッションイラスト合同誌、「466S」。 C102(2023年8月12日) 東1ホール T-13b にて頒布！ ",
-};
+    'スプラトゥーンをテーマにしたファッションイラスト合同誌「466S」。 C102(2023年8月12日) 東2ホール T-13b にて頒布！ ',
+}
 ---
 
 <!DOCTYPE html>
@@ -25,16 +25,16 @@ const meta = {
     <meta name="generator" content={Astro.generator} />
     <!-- Google Tag Manager -->
     <script type="text/partytown">
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+      ;(function (w, d, s, l, i) {
+        w[l] = w[l] || []
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' })
         var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
-          dl = l != "dataLayer" ? "&l=" + l : "";
-        j.async = true;
-        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-MFMBTNX7");
+          dl = l != 'dataLayer' ? '&l=' + l : ''
+        j.async = true
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl
+        f.parentNode.insertBefore(j, f)
+      })(window, document, 'script', 'dataLayer', 'GTM-MFMBTNX7')
     </script>
     <!-- End Google Tag Manager -->
   </head>
