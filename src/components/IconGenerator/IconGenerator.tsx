@@ -97,7 +97,7 @@ export const IconGenerator: React.FC = () => {
       {/* 描画 */}
       <div
         ref={imageRef}
-        className={classNames('w-[140px] h-[140px]')}
+        className={classNames('w-[480px] h-[480px]')}
         style={{ backgroundColor: bgColor }}
       >
         {iconType === 'squid' ? (
