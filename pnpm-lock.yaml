@@ -85,6 +85,9 @@ devDependencies:
   eslint-plugin-astro:
     specifier: ^0.27.2
     version: 0.27.2(eslint@8.45.0)
+  eslint-plugin-classnames:
+    specifier: ^0.3.1
+    version: 0.3.1
   eslint-plugin-import:
     specifier: ^2.27.5
     version: 2.27.5(@typescript-eslint/parser@6.1.0)(eslint@8.45.0)
@@ -2619,6 +2622,11 @@ packages:
       postcss-selector-parser: 6.0.13
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /eslint-plugin-classnames@0.3.1:
+    resolution: {integrity: sha512-/TttJUoc9jHPBFv6yZE2y3r/1EiuVsvIT1TkKmh48k9vqJJDIZKS5hD875mgJzHWSsMYK3H3L+o430h5DOtkyg==}
+    engines: {node: '>=0.10.0'}
     dev: true
 
   /eslint-plugin-import@2.27.5(@typescript-eslint/parser@6.1.0)(eslint@8.45.0):

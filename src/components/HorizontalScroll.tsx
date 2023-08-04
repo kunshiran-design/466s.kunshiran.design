@@ -8,6 +8,7 @@ import {
   useRef,
 } from 'react'
 import classNames from 'classnames'
+import { useMedia } from 'react-use'
 
 interface HorizontalScrollProps {
   children: ReactNode
@@ -18,6 +19,7 @@ const SCROLL_RATE = 0.1
 export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
   const [scroll, setScroll] = useState(0)
   const contentLength = useRef<number | null>(null)
+  const isMobile = useMedia('(max-width: 786px)')
 
   const style: CSSProperties = useMemo(() => {
     return { transform: `translateX(-${scroll}px)` }
@@ -61,12 +63,11 @@ export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
     } else return
   }, [])
 
+  if (isMobile) {
+    return <>{children}</>
+  }
   return (
-    <div
-      id="horizontal-scroll"
-      className={classNames('h-screen w-[300vw]')}
-      style={style}
-    >
+    <div id="horizontal-scroll" className="h-screen" style={style}>
       {children}
     </div>
   )

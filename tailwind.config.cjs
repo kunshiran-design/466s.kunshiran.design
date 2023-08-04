@@ -33,7 +33,15 @@ module.exports = {
         black: '#000',
         white: '#fff',
       },
+      screen: {
+        mobile: '640px',
+        desktop: { max: '641px' },
+      },
     },
   },
   plugins: [],
 }
+
+// mobile: {
+//   raw: 'screen  and (hover: none) and (pointer: coarse), screen and (max-width: 640px)',
+// },
