@@ -52,7 +52,13 @@ export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
         passive: false,
       })
       window.addEventListener('wheel', handleWheel, { passive: false })
-    }
+
+      return () => {
+        window.removeEventListener('resize', handleResize)
+        window.removeEventListener('DOMMouseScroll', (e) => e.preventDefault())
+        window.removeEventListener('wheel', handleWheel)
+      }
+    } else return
   }, [])
 
   return (
