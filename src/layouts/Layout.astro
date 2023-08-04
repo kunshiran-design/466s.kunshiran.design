@@ -1,5 +1,6 @@
 ---
 import '~/assets/global.css'
+import HorizontalScroll from "~/components/HorizontalScroll";
 
 export interface Props {
   title?: string
@@ -41,6 +42,8 @@ const meta = {
     <!-- End Google Tag Manager -->
   </head>
   <body>
-    <slot />
+    <HorizontalScroll client:only="react">
+      <slot />
+    </HorizontalScroll>
   </body>
 </html>
