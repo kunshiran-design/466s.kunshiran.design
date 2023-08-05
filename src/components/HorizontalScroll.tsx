@@ -14,7 +14,7 @@ interface HorizontalScrollProps {
   children: ReactNode
 }
 
-const SCROLL_RATE = 0.1
+const SCROLL_RATE = 0.4
 
 export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
   const [scroll, setScroll] = useState(0)
@@ -47,6 +47,13 @@ export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
   }, [])
 
   useEffect(() => {
+    if (isMobile) {
+      window.removeEventListener('resize', handleResize)
+      window.removeEventListener('DOMMouseScroll', (e) => e.preventDefault())
+      window.removeEventListener('wheel', handleWheel)
+      return
+    }
+
     if (document) {
       handleResize()
 
@@ -62,7 +69,7 @@ export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
         window.removeEventListener('wheel', handleWheel)
       }
     } else return
-  }, [])
+  }, [isMobile])
 
   if (isMobile) {
     return <>{children}</>

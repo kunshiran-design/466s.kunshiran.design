@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react'
 import classNames from 'classnames'
-import { useMeasure } from 'react-use'
+import { useMeasure, useMedia } from 'react-use'
 
 const MENU_ITEM = [
   { title: 'TOP', href: '/' },
@@ -13,10 +13,25 @@ const MENU_ITEM = [
 export const Header = () => {
   const [isExtend, setIsExtend] = useState(true)
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
+  const isMobile = useMedia('(max-width: 1024px)')
 
   const handleClickExpend = useCallback(() => {
     setIsExtend((prev) => !prev)
   }, [])
+
+  if (isMobile) {
+    return (
+      <header
+        className={classNames(
+          'fixed bg-primary w-screen h-64 z-10 px-16 py-8',
+          'flex justify-between',
+        )}
+      >
+        <div>logo</div>
+        <div>🔹</div>
+      </header>
+    )
+  }
 
   return (
     <header
@@ -36,17 +51,37 @@ export const Header = () => {
         )}
         onClick={handleClickExpend}
       ></button>
-      <div className={classNames('flex', 'gap-24')}>
-        <div className={classNames('w-[160px]', 'bg-black', 'h-full')}></div>
+      <div className={classNames('inline-block', 'h-full')}>
         <div
-          className={classNames('h-full', 'w-[3px]', 'bg-black', {
-            hidden: !isExtend,
-          })}
+          className={classNames(
+            'w-[160px]',
+            'bg-black',
+            'h-full',
+            'inline-block',
+          )}
+        ></div>
+        <div
+          className={classNames(
+            'h-full',
+            'w-[3px]',
+            'bg-black',
+            'ml-40',
+            'transition-all duration-500',
+            'inline-block',
+            {
+              '!w-0 !ml-0': !isExtend,
+            },
+          )}
         />
         <nav
-          className={classNames('relative w-auto', {
-            hidden: !isExtend,
-          })}
+          className={classNames(
+            'relative w-40 transition-all duration-500',
+            'inline-block',
+            'ml-40',
+            {
+              '!w-0 ml-0': !isExtend,
+            },
+          )}
           ref={ref}
         >
           <ul
@@ -79,6 +114,8 @@ export const Header = () => {
           </ul>
         </nav>
       </div>
+
+      {/* 場所 */}
       <div
         className={classNames(
           'grid',
@@ -92,11 +129,12 @@ export const Header = () => {
           'py-16',
           'content-center',
           'h-[160px]',
+          'w-full',
         )}
       >
         <div
           className={classNames(
-            'text-[36px]',
+            'text-[10px]',
             'font-black',
             'leading-none',
             'inline-block',
@@ -109,12 +147,12 @@ export const Header = () => {
         </div>
         <div
           className={classNames(
-            'text-[80px]',
+            'text-[10px]',
             'leading-none',
             'font-black',
             'align-text-bottom',
             'inline-block',
-            { 'text-[32px]': !isExtend },
+            { 'text-[0px]': !isExtend },
           )}
         >
           <span

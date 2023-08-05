@@ -1,4 +1,5 @@
 const DEFAULT_SPACING = {
+  0: '0px',
   1: '1px',
   2: '2px',
   4: '4px',
@@ -33,9 +34,9 @@ module.exports = {
         black: '#000',
         white: '#fff',
       },
-      screen: {
-        mobile: '1024px',
-        desktop: { max: '1025px' },
+      screens: {
+        mobile: { max: '1024px' },
+        desktop: '1025px',
       },
     },
   },
