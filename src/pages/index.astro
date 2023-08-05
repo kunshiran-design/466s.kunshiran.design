@@ -1,12 +1,15 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import About from '~/components/About/About'
-
+import Information from '~/components/Information/Information'
+import Goods from '~/components/Goods/Goods'
 ---
 
 <Layout>
-  <main class="grid grid-cols-[repeat(6,auto)]">
+  <main id="main" class="flex gap-24 no-wrap justify-start min-w-screen w-min">
     <div class="h-screen w-screen bg-white">hogehoge</div>
     <About/>
+    <Information/>
+    <Goods/>
   </main>
 </Layout>

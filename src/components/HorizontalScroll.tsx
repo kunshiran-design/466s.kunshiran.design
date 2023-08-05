@@ -30,7 +30,6 @@ export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
       e.preventDefault()
       const width = contentLength.current
       setScroll((prev) => {
-        console.log(prev, width)
         const next = prev + e.deltaY * SCROLL_RATE
         if (next <= 0.0) return 0.0
         else if (width && next >= width) return width
@@ -41,8 +40,10 @@ export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
   )
 
   const handleResize = useCallback(() => {
-    contentLength.current =
-      document.getElementById('horizontal-scroll')?.clientWidth ?? 0
+    const scrollWidth =
+      (document.getElementById('main')?.clientWidth ?? 0) - window.innerWidth
+
+    contentLength.current = scrollWidth
   }, [])
 
   useEffect(() => {
