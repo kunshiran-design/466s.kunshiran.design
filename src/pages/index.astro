@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import About from '~/components/About/About'
 import Information from '~/components/Information/Information'
 import Goods from '~/components/Goods/Goods'
+import Special from '~/components/Special/Special'
 ---
 
 <Layout>
@@ -11,5 +12,6 @@ import Goods from '~/components/Goods/Goods'
     <About/>
     <Information/>
     <Goods/>
+    <Special client:load/>
   </main>
 </Layout>
