@@ -19,7 +19,7 @@ const SCROLL_RATE = 0.1
 export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
   const [scroll, setScroll] = useState(0)
   const contentLength = useRef<number | null>(null)
-  const isMobile = useMedia('(max-width: 786px)')
+  const isMobile = useMedia('(max-width: 1024px)')
 
   const style: CSSProperties = useMemo(() => {
     return { transform: `translateX(-${scroll}px)` }

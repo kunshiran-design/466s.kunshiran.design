@@ -11,7 +11,7 @@ export const Information = () => {
   return (
     <section
       id="Information"
-      className={classNames('px-[128px]', 'py-56', 'desktop:h-screen')}
+      className={classNames('py-56', 'desktop:h-screen')}
     >
       <h1
         className={classNames(

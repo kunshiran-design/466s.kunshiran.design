@@ -1,17 +1,22 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Top from '~/components/Top/Top'
 import About from '~/components/About/About'
 import Information from '~/components/Information/Information'
 import Goods from '~/components/Goods/Goods'
 import Special from '~/components/Special/Special'
+import Credit from '~/components/Credit/Credit'
+import Ending from '~/components/Ending/Ending'
 ---
 
 <Layout>
-  <main id="main" class="flex gap-24 no-wrap justify-start min-w-screen w-min">
-    <div class="h-screen w-screen bg-white">hogehoge</div>
+  <main id="main" class="flex gap-[256px] no-wrap justify-start min-w-screen w-min box-border">
+    <Top/>
     <About/>
     <Information/>
     <Goods/>
     <Special client:load/>
+    <Credit/>
+    <Ending/>
   </main>
 </Layout>

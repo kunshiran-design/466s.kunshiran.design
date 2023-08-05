@@ -3,10 +3,7 @@ import IconGenerator from './IconGenerator'
 
 export const Special = () => {
   return (
-    <section
-      id="Special"
-      className={classNames('px-[128px]', 'py-56', 'desktop:h-screen')}
-    >
+    <section id="Special" className={classNames('py-56', 'desktop:h-screen')}>
       <h1
         className={classNames(
           'font-black',

@@ -34,8 +34,8 @@ module.exports = {
         white: '#fff',
       },
       screen: {
-        mobile: '640px',
-        desktop: { max: '641px' },
+        mobile: '1024px',
+        desktop: { max: '1025px' },
       },
     },
   },

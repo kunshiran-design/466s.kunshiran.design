@@ -13,10 +13,7 @@ const HEADER_STYLE = [
 
 export const Goods = () => {
   return (
-    <section
-      id="Goods"
-      className={classNames('px-[128px]', 'py-56', 'desktop:h-screen')}
-    >
+    <section id="Goods" className={classNames('py-56', 'desktop:h-screen')}>
       <h1
         className={classNames(
           'font-black',

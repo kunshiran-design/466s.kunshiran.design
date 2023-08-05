@@ -5,7 +5,6 @@ export const About = () => {
     <section
       id="about"
       className={classNames(
-        'px-[128px]',
         'py-56',
         'desktop:h-screen',
         'grid',
