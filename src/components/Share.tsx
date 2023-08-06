@@ -4,7 +4,7 @@ export const Share = () => {
   return (
     <div className={classNames('fixed', 'bottom-32', 'right-32', 'z-10')}>
       <a
-        href="https://twitter.com/intent/tweet?text=%20%E3%80%90466s%20LOOKBOOK%E3%80%91%208%2F12%EF%BC%88%E5%9C%9F%EF%BC%89%20%E6%9D%B1T13-b%20%23splatoon%20%23C102&url=https%3A%2F%2F466s.kunshirsn.design"
+        href="https://twitter.com/intent/tweet?text=%E3%80%90466s%20LOOKBOOK%E3%80%91%208%2F12%EF%BC%88%E5%9C%9F%EF%BC%89%20%E6%9D%B1T13-b%20%23splatoon%20%23C102%20%23466s_LOOKBOOK&url=https%3A%2F%2F466s.kunshirsn.design"
         target="_blank"
         rel="noreferrer"
         className={classNames('h-32', 'w-32', 'text-black')}
