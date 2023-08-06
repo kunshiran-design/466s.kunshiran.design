@@ -55,7 +55,7 @@ export const Goods = () => {
       <div
         className={classNames(
           'h-full',
-          'dektop:py-48',
+          'desktop:py-48',
           'mobile:mt-24',
           'grid',
           'desktop:grid-cols-[max-content_min-content_auto_auto]',
