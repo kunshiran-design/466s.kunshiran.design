@@ -13,11 +13,11 @@ export default defineConfig({
   integrations: [
     react(),
     ,
-    // partytown({
-    // config: {
-    //   forward: ['dataLayer.push']
-    // }
-    // })
+    partytown({
+      config: {
+        forward: ['dataLayer.push'],
+      },
+    }),
     tailwind(),
     sitemap(),
     robotsTxt(),
