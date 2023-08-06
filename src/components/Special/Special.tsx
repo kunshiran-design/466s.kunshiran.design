@@ -100,8 +100,8 @@ export const Special = () => {
             <p
               className={classNames(
                 'font-bold',
-                'break-keep',
-                'whitespace-nowrap',
+                'desktop:break-keep',
+                'desktop:whitespace-nowrap',
                 'mobile:text-[14px]',
               )}
             >
