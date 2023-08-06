@@ -136,7 +136,7 @@ export const Header = () => {
               >
                 <div
                   className={classNames(
-                    'text-[16px]',
+                    'text-[10px]',
                     'font-bold',
                     'leading-none',
                     'inline-block',
@@ -147,7 +147,7 @@ export const Header = () => {
                 </div>
                 <div
                   className={classNames(
-                    'text-[48px]',
+                    'text-[28px]',
                     'leading-none',
                     'font-bold',
                     'align-text-bottom',

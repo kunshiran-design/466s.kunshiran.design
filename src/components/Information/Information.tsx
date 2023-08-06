@@ -179,11 +179,12 @@ export const Information = () => {
           </h2>
           <div
             className={classNames(
-              'h-full',
+              'desktop:h-full',
+              'mobile:w-full',
               'aspect-[9/12]',
               'pt-24',
-              'pr-24',
-              'pb-32',
+              'desktop:pr-24',
+              'desktop:pb-32',
               'relative',
             )}
           >

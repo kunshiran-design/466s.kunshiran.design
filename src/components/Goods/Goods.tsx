@@ -166,7 +166,12 @@ export const Goods = () => {
               2000
             </p>
           </header>
-          <div className={classNames('h-[7vh] aspect-[685/108]', 'relative')}>
+          <div
+            className={classNames(
+              'desktop:h-[7vh] aspect-[685/108]',
+              'relative',
+            )}
+          >
             <img
               src={StrapImg}
               className={classNames(
