@@ -65,11 +65,11 @@ export const Top = () => {
       <div
         className={classNames(
           'absolute',
-          'left-[400px]',
+          'left-[260px]',
           'bottom-[30px]',
           'm-0',
           'z-[2]',
-          'h-[30vh]',
+          'h-[40vh]',
           'aspect-square',
         )}
       >

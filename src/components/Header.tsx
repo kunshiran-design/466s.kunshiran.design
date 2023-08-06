@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react'
 import { useState, useCallback } from 'react'
 import classNames from 'classnames'
 import { useMeasure, useMedia } from 'react-use'
@@ -17,7 +16,7 @@ const MENU_ITEM = [
 ]
 
 export const Header = () => {
-  const [isExtend, setIsExtend] = useState(true)
+  const [isExtend, setIsExtend] = useState(false)
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
   const [heightRef, { height: boxHeight }] = useMeasure<HTMLElement>()
   const isMobile = useMedia('(max-width: 1024px)')
@@ -76,12 +75,18 @@ export const Header = () => {
           'absolute',
           'top-16',
           'left-[260px]',
-          'bg-black',
+          'text-black',
           'w-24',
           'h-24',
+          'rotate-180',
+          {
+            '!rotate-0': !isExtend,
+          },
         )}
         onClick={handleClickExpend}
-      ></button>
+      >
+        ≫
+      </button>
 
       {/* コンテンツ */}
       <div
