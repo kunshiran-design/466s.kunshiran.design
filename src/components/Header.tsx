@@ -1,10 +1,12 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import classNames from 'classnames'
 import { useMeasure, useMedia } from 'react-use'
 
 import LogoImg from '~/assets/images/logo.svg'
 import TextImg from '~/assets/images/text.svg'
 import CodeImg from '~/assets/images/code.svg'
+
+import SpLogoImg from '~/assets/images/logo_long.svg'
 
 const MENU_ITEM = [
   { title: 'TOP', href: '/', id: 'top' },
@@ -42,6 +44,10 @@ export const Header = () => {
     [isMobile],
   )
 
+  useEffect(() => {
+    setIsExtend(false)
+  }, [isMobile])
+
   const handleClickExpend = useCallback(() => {
     setIsExtend((prev) => !prev)
   }, [])
@@ -50,12 +56,123 @@ export const Header = () => {
     return (
       <header
         className={classNames(
-          'fixed bg-primary w-screen h-64 z-10 px-16 py-8',
+          'fixed bg-primary w-screen h-64 z-[12] px-16 py-8',
           'flex justify-between',
         )}
       >
-        <div>logo</div>
-        <div>🔹</div>
+        <div className={classNames('h-full', 'py-4')}>
+          <img src={SpLogoImg} className="h-full" />
+        </div>
+        <button
+          className={classNames(
+            'grid gap-8 justify-end justify-items-end w-48 py-12',
+          )}
+          onClick={handleClickExpend}
+        >
+          <div className={classNames('h-2 w-48 bg-black')} />
+          <div className={classNames('h-2 w-40 bg-black')} />
+          <div className={classNames('h-2 w-32 bg-black')} />
+        </button>
+        <nav
+          className={classNames(
+            'absolute h-[calc(100vh-64px)] w-screen inset-x-0 mx-auto top-64 bg-primary z-[11]',
+            'grid gap-8 content-between',
+            'pt-32 pb-16',
+            'translate-x-full',
+            'transition-transform duration-500',
+            {
+              '!translate-x-0': isExtend,
+            },
+          )}
+        >
+          <ul
+            className={classNames(
+              'h-full',
+              'w-full',
+              'px-16',
+              'grid',
+              'gap-32',
+              'content-start',
+              'leading-none',
+            )}
+          >
+            {MENU_ITEM.map((item) => (
+              <li key={item.title}>
+                <a
+                  href={item.href}
+                  className={classNames('font-bold', 'text-[40px]')}
+                  onClick={() => handleClickExpend()}
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
+          </ul>
+          <div
+            className={classNames(
+              'grid',
+              'gap-48',
+              'grid-cols-[1fr_1fr]',
+              'px-16',
+              'items-end',
+            )}
+          >
+            <div>
+              <div
+                className={classNames(
+                  'grid',
+                  'gap-8',
+                  'border-4',
+                  'border-black',
+                  'bg-white',
+                  'text-center',
+                  'row-start-2',
+                  'px-8',
+                  'py-16',
+                  'content-center',
+                  'h-[120px]',
+                  'w-full',
+                )}
+              >
+                <div
+                  className={classNames(
+                    'text-[16px]',
+                    'font-bold',
+                    'leading-none',
+                    'inline-block',
+                    'transition-[font-size] duration-500',
+                  )}
+                >
+                  C102 08.12（土）東2
+                </div>
+                <div
+                  className={classNames(
+                    'text-[48px]',
+                    'leading-none',
+                    'font-bold',
+                    'align-text-bottom',
+                    'inline-block',
+                    'transition-all duration-500',
+                  )}
+                >
+                  <span
+                    className={classNames(
+                      'text-[0.83em]',
+                      '-translate-y-[0.08em]',
+                      'inline-block',
+                    )}
+                  >
+                    東
+                  </span>
+                  T-13b
+                </div>
+              </div>
+            </div>
+            <div className="w-full">
+              <img src={CodeImg} alt="バーコード" className="w-full" />
+            </div>
+          </div>
+        </nav>
       </header>
     )
   }
@@ -170,7 +287,7 @@ export const Header = () => {
                   <li key={item.title}>
                     <a
                       href={item.href}
-                      className={classNames('font-black', 'text-[20px]')}
+                      className={classNames('font-bold', 'text-[20px]')}
                       onClick={(e) => {
                         e.preventDefault()
                         handleClick(item.id)
@@ -207,7 +324,7 @@ export const Header = () => {
           <div
             className={classNames(
               'text-[22px]',
-              'font-black',
+              'font-bold',
               'leading-none',
               'inline-block',
               'transition-[font-size] duration-500',
@@ -222,7 +339,7 @@ export const Header = () => {
             className={classNames(
               'text-[60px]',
               'leading-none',
-              'font-black',
+              'font-bold',
               'align-text-bottom',
               'inline-block',
               'transition-all duration-500',

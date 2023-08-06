@@ -51,8 +51,8 @@ export const Top = () => {
           'vertical:inset-x-0',
           'vertical:mx-auto',
           'vertical:translate-x-[10%]',
-          'mobile:!translate-x-[-10%]',
-          'mobile:!translate-y-0',
+          'mobile:!translate-x-[-20%]',
+          'mobile:!translate-y-[10%]',
           'overflow-hidden',
         )}
       >
@@ -65,8 +65,10 @@ export const Top = () => {
       <div
         className={classNames(
           'absolute',
-          'left-[260px]',
-          'bottom-[30px]',
+          'desktop:left-[260px]',
+          'mobile:left-[-60px]',
+          'desktop:bottom-[30px]',
+          'mobile:bottom-[-70px]',
           'm-0',
           'z-[2]',
           'h-[40vh]',
@@ -85,13 +87,16 @@ export const Top = () => {
           'text-white',
           'right-[96px]',
           'vertical:right-[32px]',
-          'bottom-[114px]',
+          'desktop:bottom-[114px]',
           'm-0',
           'z-[2]',
           'text-[64px]',
           'text-right',
           'italic',
           'font-black',
+          'mobile:scale-[0.4]',
+          'mobile:!right-[-80px]',
+          'mobile:!top-[-40px]',
         )}
       >
         <span className={classNames(ZABUTON)}>splatoon</span>
@@ -102,7 +107,6 @@ export const Top = () => {
         <br />
         <span className={classNames(ZABUTON)}>lookbook</span>
       </div>
-      hogehoge
     </section>
   )
 }

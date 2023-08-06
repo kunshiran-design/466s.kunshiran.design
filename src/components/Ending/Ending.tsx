@@ -32,15 +32,16 @@ export const Ending = () => {
   }, [ref.current])
 
   return (
-    <section id="ending" className={classNames('w-[60vw]', 'h-screen')}>
+    <section id="ending" className={classNames('desktop:w-[60vw]', 'h-screen')}>
       <div
         className={classNames(
           'grid',
           'gap-16',
           'place-content-center',
-          'w-[10vw]',
-          'h-full',
-          'pl-[15vw]',
+          'desktop:w-[10vw]',
+          'desktop:h-full',
+          'mobile:h-screen',
+          'desktop:pl-[15vw]',
         )}
         ref={ref}
       >
@@ -48,7 +49,7 @@ export const Ending = () => {
           className={classNames(
             'text-white',
             'text-[32px]',
-            'font-black',
+            'font-bold',
             'opacity-0',
             'transition-all',
             'duration-[1s]',

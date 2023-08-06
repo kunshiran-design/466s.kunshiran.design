@@ -49,12 +49,13 @@ export const Credit = () => {
   return (
     <section
       id="credit"
-      className={classNames('py-56', 'desktop:h-screen', 'mr-[40vw]')}
+      className={classNames('py-56', 'desktop:h-screen', 'desktop:mr-[40vw]')}
     >
       <h1
         className={classNames(
           'font-black',
-          'text-[56px]',
+          'mobile:text-[32px]',
+          'desktop:text-[56px]',
           'leading-none',
           'relative',
           'inline-block',
@@ -71,19 +72,22 @@ export const Credit = () => {
       </h1>
       <div
         className={classNames(
-          'py-48',
+          'desktop:py-48',
+          'mobile:mt-24',
           'min-h-full',
           'grid',
-          'grid-cols-[1fr_1fr]',
-          'gap-40',
+          'desktop:grid-cols-[1fr_1fr]',
+          'desktop:gap-40',
+          'mobile:gap-24',
           'items-start',
           'box-border',
         )}
       >
         <div
           className={classNames(
-            'py-32',
-            'px-24',
+            'p-16',
+            'desktop:py-32',
+            'desktop:px-24',
             'border-black',
             'bg-white',
             'border-4',
@@ -92,7 +96,7 @@ export const Credit = () => {
           <h2
             className={classNames(
               'text-[24px]',
-              'font-black',
+              'font-bold',
               'leading-none',
               'ml-16',
               'relative',
@@ -115,7 +119,7 @@ export const Credit = () => {
                     <li key={member.link}>
                       <p
                         className={classNames(
-                          'font-bold text-[32px] leading-none break-keep whitespace-nowrap',
+                          'font-bold desktop:text-[32px] mobile:text-[24px] leading-none break-keep whitespace-nowrap',
                         )}
                       >
                         {member.name}{' '}
@@ -138,8 +142,9 @@ export const Credit = () => {
         </div>
         <div
           className={classNames(
-            'py-32',
-            'px-24',
+            'p-16',
+            'desktop:py-32',
+            'desktop:px-24',
             'border-black',
             'bg-white',
             'border-4',
@@ -148,7 +153,7 @@ export const Credit = () => {
           <h2
             className={classNames(
               'text-[24px]',
-              'font-black',
+              'font-bold',
               'leading-none',
               'ml-16',
               'relative',
@@ -171,7 +176,7 @@ export const Credit = () => {
                     <li key={member.link}>
                       <p
                         className={classNames(
-                          'font-bold text-[32px] leading-none break-keep whitespace-nowrap',
+                          'font-bold desktop:text-[32px] mobile:text-[24px] leading-none break-keep whitespace-nowrap',
                         )}
                       >
                         {member.name}{' '}

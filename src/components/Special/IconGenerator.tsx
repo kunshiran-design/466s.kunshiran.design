@@ -75,12 +75,19 @@ export const IconGenerator: React.FC = () => {
     }, [])
 
   return (
-    <div className={classNames('pr-32', 'grid', 'content-between', 'gap-40')}>
+    <div
+      className={classNames(
+        'desktop:pr-32',
+        'grid',
+        'content-between',
+        'gap-40',
+      )}
+    >
       {/* 描画 */}
       <div
         ref={imageRef}
         className={classNames(
-          'w-[40vh] h-[40vh] shadow-[16px_16px_0px_0px_#000]',
+          'desktop:w-[40vh] desktop:h-[40vh] mobile:w-full mobile:h-full desktop:shadow-[16px_16px_0px_0px_#000] mobile:shadow-[8px_8px_0px_0px_#000]',
         )}
         style={{ backgroundColor: bgColor }}
       >
@@ -94,14 +101,17 @@ export const IconGenerator: React.FC = () => {
       <div
         className={classNames(
           'grid',
-          'grid-cols-[repeat(2,auto)]',
-          'gap-80',
+          'desktop:grid-cols-[repeat(2,auto)]',
+          'desktop:gap-80',
+          'mobile:gap-24',
           'justify-center',
         )}
       >
         {/* イカ・タコ選択 */}
-        <div className={classNames('flex', 'gap-24')}>
-          <h3 className={classNames('font-black text-[24px]')}>TYPE</h3>
+        <div
+          className={classNames('flex', 'desktop:gap-24', 'mobile:gap-[47px]')}
+        >
+          <h3 className={classNames('font-bold text-[24px]')}>TYPE</h3>
           <div
             className={classNames('grid', 'gap-16', 'content-start', 'mt-8')}
           >
@@ -192,7 +202,7 @@ export const IconGenerator: React.FC = () => {
 
         {/* 色選択 */}
         <div className={classNames('flex', 'gap-24')}>
-          <h3 className={classNames('font-black text-[24px]')}>COLOR</h3>
+          <h3 className={classNames('font-bold text-[24px]')}>COLOR</h3>
           <div className={classNames('grid', 'gap-24 content-start', 'mt-8')}>
             <div className={classNames('grid gap-16')}>
               <label className={classNames('flex gap-8 items-center relative')}>
@@ -220,7 +230,7 @@ export const IconGenerator: React.FC = () => {
                     style={{ backgroundColor: bgColor }}
                   />
                 </div>
-                <span className={classNames('select-none', 'font-black')}>
+                <span className={classNames('select-none', 'font-bold')}>
                   BACKGROUND
                 </span>
               </label>
@@ -249,7 +259,7 @@ export const IconGenerator: React.FC = () => {
                     style={{ backgroundColor: hairColor }}
                   />
                 </div>
-                <span className={classNames('select-none', 'font-black')}>
+                <span className={classNames('select-none', 'font-bold')}>
                   TENTACLES
                 </span>
               </label>
@@ -278,7 +288,7 @@ export const IconGenerator: React.FC = () => {
                     style={{ backgroundColor: eyeColor }}
                   />
                 </div>
-                <span className={classNames('select-none', 'font-black')}>
+                <span className={classNames('select-none', 'font-bold')}>
                   EYES
                 </span>
               </label>

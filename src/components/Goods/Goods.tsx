@@ -7,8 +7,9 @@ import StickerImg from '~/assets/images/sticker.png'
 import SetImg from '~/assets/images/set.png'
 
 const BASE_STYLE = [
-  'py-32',
-  'px-24',
+  'p-16',
+  'desktop:py-32',
+  'desktop:px-24',
   'border-black',
   'bg-white',
   'border-4',
@@ -19,8 +20,9 @@ const BASE_STYLE = [
   'grid-rows-[min-content_1fr]',
 ]
 const HEADER_STYLE = [
-  'text-[24px]',
-  'font-black',
+  'text-[16px]',
+  'desktop:text-[24px]',
+  'font-normal',
   'leading-none',
   'ml-16',
   'relative',
@@ -34,7 +36,8 @@ export const Goods = () => {
       <h1
         className={classNames(
           'font-black',
-          'text-[56px]',
+          'mobile:text-[32px]',
+          'desktop:text-[56px]',
           'leading-none',
           'relative',
           'inline-block',
@@ -52,12 +55,14 @@ export const Goods = () => {
       <div
         className={classNames(
           'h-full',
-          'py-48',
+          'dektop:py-48',
+          'mobile:mt-24',
           'grid',
-          'grid-cols-[max-content_min-content_auto_auto]',
-          'grid-rows-[1fr_min-content]',
-          'gap-40',
-          'items-start',
+          'desktop:grid-cols-[max-content_min-content_auto_auto]',
+          'desktop:grid-rows-[1fr_min-content]',
+          'desktop:gap-40',
+          'desktop:items-start',
+          'gap-24',
           'box-border',
         )}
       >
@@ -68,17 +73,19 @@ export const Goods = () => {
               'flex',
               'justify-between',
               'gap-16',
-              'font-black',
+              'font-bold',
               'items-center',
             )}
           >
             <h2 className={classNames(HEADER_STYLE)}>キャラステッカーセット</h2>
-            <p className={classNames('text-[24px] leading-none')}>
+            <p className={classNames('text-[24px]', 'leading-none')}>
               <span className="text-[0.75em]">¥</span>
               800
             </p>
           </header>
-          <div className={classNames('h-full', 'relative')}>
+          <div
+            className={classNames('desktop:h-full mobile:h-[50vh]', 'relative')}
+          >
             <img
               src={CharaStickerImg}
               className={classNames(
@@ -95,13 +102,17 @@ export const Goods = () => {
 
         {/* DM+マルチファイルセット */}
         <article
-          className={classNames('h-full', 'col-start-2 col-end-4', BASE_STYLE)}
+          className={classNames(
+            'h-full',
+            'desktop:col-start-2 desktop:col-end-4',
+            BASE_STYLE,
+          )}
         >
           <header
             className={classNames(
               'flex',
               'justify-between',
-              'font-black',
+              'font-bold',
               'items-center',
               'gap-16',
             )}
@@ -114,7 +125,9 @@ export const Goods = () => {
               1000
             </p>
           </header>
-          <div className={classNames('h-full', 'relative')}>
+          <div
+            className={classNames('desktop:h-full mobile:h-[50vh]', 'relative')}
+          >
             <img
               src={DmImg}
               className={classNames(
@@ -131,10 +144,10 @@ export const Goods = () => {
         {/* スマホストラップ */}
         <article
           className={classNames(
-            'min-w-[464px] h-full',
-            'col-start-1 col-end-3',
-            'row-start-2',
-            'row-end-3',
+            'desktop:min-w-[464px] h-full',
+            'desktop:col-start-1 desktop:col-end-3',
+            'desktop:row-start-2',
+            'desktop:row-end-3',
             BASE_STYLE,
           )}
         >
@@ -142,7 +155,7 @@ export const Goods = () => {
             className={classNames(
               'flex',
               'justify-between',
-              'font-black',
+              'font-bold',
               'items-center',
               'gap-16',
             )}
@@ -169,12 +182,14 @@ export const Goods = () => {
         </article>
 
         {/* ロゴステッカー */}
-        <article className={classNames('min-w-[464px] h-full', BASE_STYLE)}>
+        <article
+          className={classNames('desktop:min-w-[464px] h-full', BASE_STYLE)}
+        >
           <header
             className={classNames(
               'flex',
               'justify-between',
-              'font-black',
+              'font-bold',
               'items-center',
               'gap-16',
             )}
@@ -185,7 +200,7 @@ export const Goods = () => {
               200
             </p>
           </header>
-          <div className={classNames('h-[7vh]', 'relative')}>
+          <div className={classNames('h-[7vh] mobile:w-full', 'relative')}>
             <img
               src={StickerImg}
               className={classNames(
@@ -202,7 +217,7 @@ export const Goods = () => {
         {/* 新刊セット */}
         <article
           className={classNames(
-            'min-w-[464px] ',
+            'desktop:min-w-[464px] ',
             'h-full',
             'bg-black',
             'py-32',
@@ -211,18 +226,18 @@ export const Goods = () => {
             'grid',
             'gap-24',
             'items-start',
-            'grid-rows-[min-content_1fr]',
-            'col-start-4',
-            'col-end-5',
-            'row-start-1',
-            'row-end-3',
+            'desktop:grid-rows-[min-content_1fr]',
+            'desktop:col-start-4',
+            'desktop:col-end-5',
+            'desktop:row-start-1',
+            'desktop:row-end-3',
           )}
         >
           <header
             className={classNames(
               'flex',
               'justify-between',
-              'font-black',
+              'font-bold',
               'items-center',
               'gap-16',
             )}
@@ -235,7 +250,9 @@ export const Goods = () => {
               3000
             </p>
           </header>
-          <div className={classNames('h-full', 'relative')}>
+          <div
+            className={classNames('desktop:h-full mobile:h-[50vh]', 'relative')}
+          >
             <img
               src={SetImg}
               className={classNames(

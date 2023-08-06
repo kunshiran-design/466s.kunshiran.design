@@ -9,10 +9,12 @@ export const About = () => {
       className={classNames(
         'py-56',
         'desktop:h-screen',
-        'grid',
+        'mobile:w-full',
+        'desktop:grid',
         'gap-0',
         'grid-cols-[repeat(2,min-content)]',
         'isolate',
+        'mobile:mt-64',
       )}
     >
       <div className="z-[1]">
@@ -20,7 +22,8 @@ export const About = () => {
           className={classNames(
             'inline-block',
             'font-black',
-            'text-[56px]',
+            'mobile:text-[32px]',
+            'desktop:text-[56px]',
             'leading-none',
             'relative',
             'before:content-[""]',
@@ -36,19 +39,34 @@ export const About = () => {
         </h1>
         <div
           className={classNames(
-            'min-w-[464px]',
-            'mt-48',
-            'py-32',
-            'px-24',
+            'desktop:min-w-[464px]',
+            'mt-24',
+            'desktop:mt-48',
+            'p-16',
+            'desktop:py-32',
+            'desktop:px-24',
             'border-black',
             'bg-white',
             'border-4',
           )}
         >
-          <h2 className={classNames('text-[32px]', 'font-black')}>
+          <h2
+            className={classNames(
+              'text-[24px]',
+              'desktop:text-[32px]',
+              'font-bold',
+            )}
+          >
             We’re 466s!
           </h2>
-          <p className={classNames('mt-24', 'font-bold', 'leading-[1.5]')}>
+          <p
+            className={classNames(
+              'mt-24',
+              'font-bold',
+              'leading-[1.5]',
+              'mobile:text-[14px]',
+            )}
+          >
             スプラトゥーン世界の有名チームをモチーフとした、ファッションイラストレーションルックブック。
             <br /> <br />
             彼女たちは、強いだけでなくモデルとしても有名です。 そんな 466s
@@ -72,6 +90,7 @@ export const About = () => {
           'h-[80vh]',
           'self-center',
           'w-[calc(80vh/1.41428)]',
+          'mobile:hidden',
         )}
       >
         <div
