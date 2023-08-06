@@ -71,8 +71,7 @@ export const Credit = () => {
           'py-48',
           'min-h-full',
           'grid',
-          'grid-cols-[min-content_auto]',
-          'grid-rows-[min-content_auto]',
+          'grid-cols-[1fr_1fr]',
           'gap-40',
           'items-start',
           'box-border',
@@ -80,7 +79,6 @@ export const Credit = () => {
       >
         <div
           className={classNames(
-            'min-w-[464px]',
             'py-32',
             'px-24',
             'border-black',
@@ -101,7 +99,7 @@ export const Credit = () => {
           >
             BOOK
           </h2>
-          <ul className={classNames('grid', 'gap-48', 'mt-24')}>
+          <ul className={classNames('grid', 'gap-32', 'mt-24')}>
             {BOOK.map((info) => (
               <li key={info.heading} className={classNames('grid', 'gap-12')}>
                 <h3
@@ -117,15 +115,16 @@ export const Credit = () => {
                           'font-bold text-[32px] leading-none break-keep whitespace-nowrap',
                         )}
                       >
-                        {member.name}（
-                        <a
-                          href={`https://twitter.com/${member.link}`}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {`@${member.link}`}
-                        </a>
-                        ）
+                        {member.name}{' '}
+                        <span className={'text-[0.7em]'}>
+                          <a
+                            href={`https://twitter.com/${member.link}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {`@${member.link}`}
+                          </a>
+                        </span>
                       </p>
                     </li>
                   ))}
@@ -136,7 +135,6 @@ export const Credit = () => {
         </div>
         <div
           className={classNames(
-            'min-w-[464px]',
             'py-32',
             'px-24',
             'border-black',
@@ -157,7 +155,7 @@ export const Credit = () => {
           >
             OTEHRS
           </h2>
-          <ul className={classNames('grid', 'gap-48', 'mt-24')}>
+          <ul className={classNames('grid', 'gap-32', 'mt-24')}>
             {OTHERS.map((info) => (
               <li key={info.heading} className={classNames('grid', 'gap-12')}>
                 <h3
@@ -173,15 +171,16 @@ export const Credit = () => {
                           'font-bold text-[32px] leading-none break-keep whitespace-nowrap',
                         )}
                       >
-                        {member.name}（
-                        <a
-                          href={`https://twitter.com/${member.link}`}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {`@${member.link}`}
-                        </a>
-                        ）
+                        {member.name}{' '}
+                        <span className={'text-[0.7em]'}>
+                          <a
+                            href={`https://twitter.com/${member.link}`}
+                            target="_blank"
+                            rel="noreferrer"
+                          >
+                            {`@${member.link}`}
+                          </a>
+                        </span>
                       </p>
                     </li>
                   ))}

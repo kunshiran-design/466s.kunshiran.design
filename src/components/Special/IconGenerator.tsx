@@ -14,23 +14,43 @@ export const IconGenerator: React.FC = () => {
   const [bgColor, setBgColor] = useState('#ff8000')
   const [hairColor, setHairColor] = useState('#ff8800')
   const [eyeColor, setEyeColor] = useState('#000')
-  const handleGenerate = useCallback(() => {
+
+  const handleShare = useCallback(() => {
     void (async () => {
       if (!imageRef.current) {
         return
       }
 
-      try {
-        const canvas = await html2canvas(imageRef.current, { scale: 2 })
-        const dataURI = canvas.toDataURL('image/png')
-        const link = document.createElement('a')
-        link.download = '466s_generated_icon.png'
-        link.href = dataURI
-        link.click()
-        URL.revokeObjectURL(link.href)
-      } catch (_e: unknown) {
-        throw new Error('unknown error')
+      if (!window.navigator.share) {
+        try {
+          const canvas = await html2canvas(imageRef.current, { scale: 2 })
+          const dataURI = canvas.toDataURL('image/png')
+          const link = document.createElement('a')
+          link.download = '466s_generated_icon.png'
+          link.href = dataURI
+          link.click()
+          URL.revokeObjectURL(link.href)
+        } catch (_e: unknown) {
+          throw new Error('unknown error')
+        }
+        return
       }
+
+      const canvas = await html2canvas(imageRef.current, { scale: 2 })
+
+      canvas.toBlob((blob) => {
+        void (async () => {
+          if (!blob) {
+            return
+          }
+
+          const file = new File([blob], '466s_generated_icon.png', {
+            type: 'image/png',
+            lastModified: new Date().getTime(),
+          })
+          await window.navigator.share({ files: [file] })
+        })()
+      })
     })()
   }, [])
 
@@ -82,7 +102,9 @@ export const IconGenerator: React.FC = () => {
         {/* イカ・タコ選択 */}
         <div className={classNames('flex', 'gap-24')}>
           <h3 className={classNames('font-black text-[24px]')}>TYPE</h3>
-          <div className={classNames('grid', 'gap-16 content-start', 'mt-8')}>
+          <div
+            className={classNames('grid', 'gap-16', 'content-start', 'mt-8')}
+          >
             <label className={classNames('flex gap-8 items-center relative ')}>
               <input
                 type="radio"
@@ -91,27 +113,38 @@ export const IconGenerator: React.FC = () => {
                 onChange={handleChangeIconType}
                 className="hidden"
               />
-
-              <div
-                className={classNames(
-                  'w-20',
-                  'h-20',
-                  'border-2',
-                  'border-black',
-                  'rounded-full',
-                  'flex',
-                  'items-center',
-                  'justify-center',
-                  'bg-white',
-                )}
-              >
+              <div>
                 <div
-                  className={classNames('w-12', 'h-12', 'rounded-full', {
-                    'bg-primary': iconType === 'squid',
-                  })}
-                />
+                  className={classNames(
+                    'w-20',
+                    'h-20',
+                    'border-2',
+                    'border-black',
+                    'rounded-full',
+                    'relative',
+                    'bg-white',
+                  )}
+                >
+                  <div
+                    className={classNames(
+                      'w-12',
+                      'h-12',
+                      'rounded-full',
+                      'box-border',
+                      'absolute',
+                      'inset-0 m-auto',
+                      {
+                        'bg-primary': iconType === 'squid',
+                      },
+                    )}
+                  />
+                </div>
               </div>
-              <img className="h-20" src={IconSquid} alt="squid" />
+              <img
+                className={classNames('h-20', 'w-20', 'object-contain')}
+                src={IconSquid}
+                alt="squid"
+              />
             </label>
             <label className={classNames('flex gap-8 items-center relative')}>
               <input
@@ -121,26 +154,38 @@ export const IconGenerator: React.FC = () => {
                 onChange={handleChangeIconType}
                 className="hidden"
               />
-              <div
-                className={classNames(
-                  'w-20',
-                  'h-20',
-                  'border-2',
-                  'border-black',
-                  'rounded-full',
-                  'flex',
-                  'items-center',
-                  'justify-center',
-                  'bg-white',
-                )}
-              >
+              <div>
                 <div
-                  className={classNames('w-12', 'h-12', 'rounded-full', {
-                    'bg-primary': iconType === 'octopus',
-                  })}
-                />
+                  className={classNames(
+                    'w-20',
+                    'h-20',
+                    'border-2',
+                    'border-black',
+                    'rounded-full',
+                    'relative',
+                    'bg-white',
+                  )}
+                >
+                  <div
+                    className={classNames(
+                      'w-12',
+                      'h-12',
+                      'rounded-full',
+                      'box-border',
+                      'absolute',
+                      'inset-0 m-auto',
+                      {
+                        'bg-primary': iconType === 'octopus',
+                      },
+                    )}
+                  />
+                </div>
               </div>
-              <img className="h-20" src={IconOctopus} alt="octopus" />
+              <img
+                className={classNames('h-20', 'w-20', 'object-contain')}
+                src={IconOctopus}
+                alt="octopus"
+              />
             </label>
           </div>
         </div>
@@ -242,27 +287,15 @@ export const IconGenerator: React.FC = () => {
         </div>
       </div>
 
-      <div className={classNames('grid gap-16 grid-cols-[repeat(2,1fr)]')}>
-        {/* 保存ボタン */}
-        <button
-          onClick={handleGenerate}
-          className={classNames(
-            'bg-primary text-center text-white py-12 font-bold text-[24px] border-4 border-black',
-          )}
-        >
-          DOWNLOAD
-        </button>
-
-        {/*　シェアボタン */}
-        <button
-          onClick={handleGenerate}
-          className={classNames(
-            'bg-white text-center py-12 font-bold border-4 text-[24px] border-black',
-          )}
-        >
-          SHARE
-        </button>
-      </div>
+      {/* 保存ボタン */}
+      <button
+        onClick={handleShare}
+        className={classNames(
+          'bg-primary text-center text-white py-12 font-bold text-[24px] border-4 border-black w-full',
+        )}
+      >
+        DOWNLOAD
+      </button>
     </div>
   )
 }
