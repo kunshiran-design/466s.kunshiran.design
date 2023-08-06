@@ -1,7 +1,7 @@
 import classNames from 'classnames'
 
 const BOOK = [
-  { heading: '主催 / 企画', members: [{ name: 'にお', link: 'nion_design' }] },
+  { heading: '主催 / 企画', members: [{ name: 'にお', link: 'nioin_design' }] },
   {
     heading: 'ロゴ・グラフィック・編集・書体デザイン',
     members: [{ name: 'cilvia', link: 'cilvia333' }],
@@ -10,13 +10,13 @@ const BOOK = [
     heading: '表紙・本文イラスト',
     members: [
       { name: '真野怜', link: 'mano_rei_' },
-      { name: 'くろろん', link: '_kuro_ron' },
+      { name: 'くろろん', link: '_kuro_ron_' },
     ],
   },
   {
     heading: '本文イラスト',
     members: [
-      { name: 'にお', link: 'nion_design' },
+      { name: 'にお', link: 'nioin_design' },
       { name: 'エイム', link: 'A_1_M_i' },
     ],
   },
@@ -29,7 +29,7 @@ const BOOK = [
 const OTHERS = [
   {
     heading: 'グッズデザイン',
-    members: [{ name: 'にお', link: 'nion_design' }],
+    members: [{ name: 'にお', link: 'nioin_design' }],
   },
   {
     heading: 'ウェブデザイン・実装',
@@ -37,7 +37,7 @@ const OTHERS = [
   },
   {
     heading: 'PV映像・音楽',
-    members: [{ name: '緒河秋', link: 'mameden_kun' }],
+    members: [{ name: '緒河秋', link: 'mamedenkun' }],
   },
   {
     heading: 'お品書き・マップデザイン',
@@ -118,7 +118,11 @@ export const Credit = () => {
                         )}
                       >
                         {member.name}（
-                        <a href={`https://twitter.com/${member.link}`}>
+                        <a
+                          href={`https://twitter.com/${member.link}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           {`@${member.link}`}
                         </a>
                         ）
@@ -170,7 +174,11 @@ export const Credit = () => {
                         )}
                       >
                         {member.name}（
-                        <a href={`https://twitter.com/${member.link}`}>
+                        <a
+                          href={`https://twitter.com/${member.link}`}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
                           {`@${member.link}`}
                         </a>
                         ）

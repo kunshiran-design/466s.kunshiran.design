@@ -40,7 +40,7 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require('tailwind-clip-path')],
 }
 
 // mobile: {

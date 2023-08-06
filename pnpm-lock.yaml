@@ -118,6 +118,9 @@ devDependencies:
   prettier-plugin-astro:
     specifier: ^0.11.0
     version: 0.11.0
+  tailwind-clip-path:
+    specifier: ^1.0.0
+    version: 1.0.0
 
 packages:
 
@@ -5254,6 +5257,10 @@ packages:
     dependencies:
       '@pkgr/utils': 2.4.2
       tslib: 2.6.1
+
+  /tailwind-clip-path@1.0.0:
+    resolution: {integrity: sha512-pac3BiCZCEKtX+3In4508PFcX2eZL7JwliZMtfYE0RoqFMjfbCVLmu+uuEFqn1y/f2vrOB5rY4XNcmaOSG1csw==}
+    dev: true
 
   /tailwindcss@3.0.24(postcss@8.4.27):
     resolution: {integrity: sha512-H3uMmZNWzG6aqmg9q07ZIRNIawoiEcNFKDfL+YzOPuPsXuDXxJxB9icqzLgdzKNwjG3SAro2h9SYav8ewXNgig==}

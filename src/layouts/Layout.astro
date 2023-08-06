@@ -45,7 +45,7 @@ const meta = {
   </head>
   <body class="relative">
     <Background client:load/>
-    <Header client:load/>
+    <Header client:only="react"/>
     <HorizontalScroll client:only="react">
       <slot />
     </HorizontalScroll>

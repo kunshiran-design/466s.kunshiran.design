@@ -36,21 +36,25 @@ export const Header = () => {
   return (
     <header
       className={classNames(
-        'fixed bg-primary h-screen z-10 px-32 pt-64 pb-24',
+        'fixed bg-primary h-screen z-10 pl-32 pt-64 pb-24',
         'grid grid-rows-[auto_min-content] gap-24',
+        'border-r-4 border-black',
       )}
     >
+      {/* 開閉ボタン */}
       <button
         className={classNames(
           'absolute',
           'top-16',
-          'right-[64px]',
+          'left-[264px]',
           'bg-black',
           'w-24',
           'h-24',
         )}
         onClick={handleClickExpend}
       ></button>
+
+      {/* コンテンツ */}
       <div className={classNames('inline-block', 'h-full')}>
         <div
           className={classNames(
@@ -63,27 +67,26 @@ export const Header = () => {
         <div
           className={classNames(
             'h-full',
-            'w-[3px]',
-            'bg-black',
-            'ml-40',
-            'transition-all duration-500',
+            'w-0',
+            'ml-[28px]',
             'inline-block',
-            {
-              '!w-0 !ml-0': !isExtend,
-            },
+            'box-content',
+            'border-r-4 border-black',
+            'translate-x-4',
           )}
         />
         <nav
           className={classNames(
-            'relative w-40 transition-all duration-500',
+            'relative w-40 h-full transition-all duration-500',
             'inline-block',
-            'ml-40',
+            'mx-32 overflow-hidden',
             {
-              '!w-0 ml-0': !isExtend,
+              '!w-0 !mx-0': !isExtend,
             },
           )}
           ref={ref}
         >
+          <div></div>
           <ul
             className={classNames(
               'absolute',
@@ -97,10 +100,12 @@ export const Header = () => {
               'justify-between',
               'items-center',
               'pr-4',
+              'transition-transform duration-500',
+              { '!-translate-x-[60%]': !isExtend },
             )}
             style={{ height: `${width}px`, width: `${height}px` }}
           >
-            <li className={classNames('bg-black', 'h-1/2', 'w-[20%]')}></li>
+            <li className={classNames('bg-black', 'h-full', 'w-[20%]')}></li>
             {MENU_ITEM.map((item) => (
               <li key={item.title}>
                 <a
@@ -116,56 +121,59 @@ export const Header = () => {
       </div>
 
       {/* 場所 */}
-      <div
-        className={classNames(
-          'grid',
-          'gap-8',
-          'border-4',
-          'border-black',
-          'bg-white',
-          'text-center',
-          'row-start-2',
-          'px-8',
-          'py-16',
-          'content-center',
-          'h-[160px]',
-          'w-full',
-        )}
-      >
+      <div className="pr-32">
         <div
           className={classNames(
-            'text-[10px]',
-            'font-black',
-            'leading-none',
-            'inline-block',
-            {
-              'text-[16px]': !isExtend,
-            },
+            'grid',
+            'gap-8',
+            'border-4',
+            'border-black',
+            'bg-white',
+            'text-center',
+            'row-start-2',
+            'px-8',
+            'py-16',
+            'content-center',
+            'h-[160px]',
+            'w-full',
           )}
         >
-          C102_0812_Sat
-        </div>
-        <div
-          className={classNames(
-            'text-[10px]',
-            'leading-none',
-            'font-black',
-            'align-text-bottom',
-            'inline-block',
-            { 'text-[0px]': !isExtend },
-          )}
-        >
-          <span
+          <div
             className={classNames(
-              'text-[0.83em]',
-              '-translate-y-[5px]',
+              'text-[22px]',
+              'font-black',
+              'leading-none',
               'inline-block',
-              { '!text-[0.9em] !translate-y-[-1px]': !isExtend },
+              'transition-[font-size] duration-500',
+              {
+                '!text-[12px]': !isExtend,
+              },
             )}
           >
-            東
-          </span>
-          T-13b
+            C102 08.12（土）東2
+          </div>
+          <div
+            className={classNames(
+              'text-[60px]',
+              'leading-none',
+              'font-black',
+              'align-text-bottom',
+              'inline-block',
+              'transition-all duration-500',
+              { '!text-[34px]': !isExtend },
+            )}
+          >
+            <span
+              className={classNames(
+                'text-[0.83em]',
+                '-translate-y-[0.08em]',
+                'inline-block',
+              )}
+            >
+              東
+            </span>
+            T-13b
+          </div>
         </div>
       </div>
     </header>

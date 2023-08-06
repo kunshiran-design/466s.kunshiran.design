@@ -1,5 +1,24 @@
 import classNames from 'classnames'
 
+const ZABUTON = [
+  'relative',
+  'isolate',
+  'text-white',
+  'before:content-[""]',
+  'before:absolute',
+  'before:inset-y-0',
+  'before:left-1/2',
+  'before:-translate-x-1/2',
+  'before:m-0',
+  'before:bg-black',
+  'before:h-full',
+  'before:w-full',
+  'before:px-24',
+  'before:z-[-1]',
+  'before:box-content',
+  'before:clip-path-polygon-[16px_0px,_100%_0px,_calc(100%-16px)_100%,_0_100%]',
+]
+
 export const Top = () => {
   return (
     <section
@@ -28,7 +47,6 @@ export const Top = () => {
       <div
         className={classNames(
           'absolute',
-          'bg-black',
           'text-white',
           'right-[96px]',
           'bottom-[114px]',
@@ -37,15 +55,16 @@ export const Top = () => {
           'text-[64px]',
           'text-right',
           'italic',
+          'font-black',
         )}
       >
-        splatoon
+        <span className={classNames(ZABUTON)}>splatoon</span>
         <br />
-        fashion
+        <span className={classNames(ZABUTON)}>fashion</span>
         <br />
-        illustration
+        <span className={classNames(ZABUTON)}>illustration</span>
         <br />
-        lookbook
+        <span className={classNames(ZABUTON)}>lookbook</span>
       </div>
       hogehoge
     </section>
