@@ -3,10 +3,10 @@ import classNames from 'classnames'
 export const Ending = () => {
   return (
     <section
+      id="ending"
       className={classNames(
         'w-screen',
         'h-screen',
-        'bg-black',
         'flex',
         'place-content-center',
         'pl-[228px]',

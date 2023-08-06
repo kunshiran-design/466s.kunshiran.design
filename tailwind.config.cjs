@@ -37,10 +37,15 @@ module.exports = {
       screens: {
         mobile: { max: '1024px' },
         desktop: '1025px',
+        vertical: { raw: 'screen and (max-aspect-ratio: 1/1)' },
+        horizontal: { raw: 'screen and (min-aspect-ratio: 100000/100001)' },
       },
     },
   },
-  plugins: [require('tailwind-clip-path')],
+  plugins: [
+    require('tailwind-clip-path'),
+    require('@tailwindcss/container-queries'),
+  ],
 }
 
 // mobile: {

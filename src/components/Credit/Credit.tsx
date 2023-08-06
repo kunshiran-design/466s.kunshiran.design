@@ -47,7 +47,7 @@ const OTHERS = [
 
 export const Credit = () => {
   return (
-    <section id="Credit" className={classNames('py-56', 'desktop:h-screen')}>
+    <section id="credit" className={classNames('py-56', 'desktop:h-screen')}>
       <h1
         className={classNames(
           'font-black',

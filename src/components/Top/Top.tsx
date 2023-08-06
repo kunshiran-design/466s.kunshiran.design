@@ -1,4 +1,6 @@
 import classNames from 'classnames'
+import MVImg from '~/assets/images/mv.png'
+import SplashImg from '~/assets/images/splash.svg'
 
 const ZABUTON = [
   'relative',
@@ -22,33 +24,67 @@ const ZABUTON = [
 export const Top = () => {
   return (
     <section
+      id="top"
       className={classNames(
         'w-screen',
         'h-screen',
-        'bg-white',
         'px-96',
         'relative',
         'isolate',
+        'mobile:px-16',
       )}
     >
       <div
         className={classNames(
           'absolute',
-          'h-[65vh]',
+          'horizontal:w-[80vw]',
+          'vertical:h-[50vh]',
           'aspect-[16/9]',
           'rotate-[-4deg]',
-          'bg-white',
+          'vertical:rotate-[85deg]',
           'border-4',
           'border-black',
-          'top-[10%]',
-          'right-[-2%]',
+          'inset-y-0',
+          'my-auto',
+          'horizontal:translate-y-[-3%]',
+          'horizontal:right-[0%]',
+          'vertical:inset-x-0',
+          'vertical:mx-auto',
+          'vertical:translate-x-[10%]',
+          'mobile:!translate-x-[-10%]',
+          'mobile:!translate-y-0',
+          'overflow-hidden',
         )}
-      />
+      >
+        <img
+          src={MVImg}
+          alt="466s メインビジュアル"
+          className={classNames('w-full h-full object-cover scale-[1.1]')}
+        />
+      </div>
+      <div
+        className={classNames(
+          'absolute',
+          'left-[400px]',
+          'bottom-[30px]',
+          'm-0',
+          'z-[2]',
+          'h-[30vh]',
+          'aspect-square',
+        )}
+      >
+        <img
+          src={SplashImg}
+          alt="466s ロゴ"
+          className={classNames('w-full h-full object-contain')}
+        />
+      </div>
       <div
         className={classNames(
           'absolute',
           'text-white',
           'right-[96px]',
+          'vertical:right-[32px]',
           'bottom-[114px]',
           'm-0',
           'z-[2]',

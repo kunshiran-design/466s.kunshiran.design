@@ -1,5 +1,8 @@
 import classNames from 'classnames'
 
+import BOOTHLogoImg from '~/assets/images/booth.svg'
+import MapImg from '~/assets/images/map.png'
+
 const INFO = [
   { heading: 'Title', text: '466s LOOKBOOOK' },
   { heading: 'Release', text: '2023.08.12' },
@@ -10,7 +13,7 @@ const INFO = [
 export const Information = () => {
   return (
     <section
-      id="Information"
+      id="information"
       className={classNames('py-56', 'desktop:h-screen')}
     >
       <h1
@@ -36,9 +39,10 @@ export const Information = () => {
           'py-48',
           'min-h-full',
           'grid',
-          'grid-cols-[min-content_auto]',
-          'grid-rows-[min-content_auto]',
+          'grid-cols-[min-content_min-content]',
+          'grid-rows-[min-content_min-content_auto]',
           'gap-40',
+          'content-start',
           'items-start',
           'box-border',
         )}
@@ -121,7 +125,9 @@ export const Information = () => {
               'group',
             )}
           >
-            <div className={classNames('w-16', 'h-16', 'bg-primary')} />
+            <div className={classNames('w-16', 'h-16', 'bg-primary', 'p-2')}>
+              <img src={BOOTHLogoImg} alt="BOOTH ロゴ" />
+            </div>
             <p
               className={classNames(
                 'font-black',
@@ -137,16 +143,16 @@ export const Information = () => {
         <div
           className={classNames(
             'col-start-2',
+            'col-end-3',
             'row-start-1',
-            'row-end-3',
-            'min-w-[640px]',
+            'row-end-4',
             'h-full',
-            'max-h-[1000px]',
             'py-32',
             'px-24',
             'border-black',
             'bg-white',
             'border-4',
+            'relative',
           )}
         >
           <h2
@@ -162,6 +168,22 @@ export const Information = () => {
           >
             MAP
           </h2>
+          <div
+            className={classNames(
+              'h-full',
+              'aspect-[9/12]',
+              'pt-24',
+              'pr-24',
+              'pb-32',
+              'relative',
+            )}
+          >
+            <img
+              src={MapImg}
+              alt="コミケサークル配置マップ"
+              className={classNames('h-full', 'w-full')}
+            />
+          </div>
         </div>
       </div>
     </section>

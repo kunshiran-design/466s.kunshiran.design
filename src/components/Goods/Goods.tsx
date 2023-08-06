@@ -1,6 +1,23 @@
 import classNames from 'classnames'
 
-const BASE_STYLE = ['py-32', 'px-24', 'border-black', 'bg-white', 'border-4']
+import CharaStickerImg from '~/assets/images/chara.png'
+import DmImg from '~/assets/images/dm.png'
+import StrapImg from '~/assets/images/strap.png'
+import StickerImg from '~/assets/images/sticker.png'
+import SetImg from '~/assets/images/set.png'
+
+const BASE_STYLE = [
+  'py-32',
+  'px-24',
+  'border-black',
+  'bg-white',
+  'border-4',
+  'box-border',
+  'grid',
+  'gap-24',
+  'items-start',
+  'grid-rows-[min-content_1fr]',
+]
 const HEADER_STYLE = [
   'text-[24px]',
   'font-black',
@@ -13,7 +30,7 @@ const HEADER_STYLE = [
 
 export const Goods = () => {
   return (
-    <section id="Goods" className={classNames('py-56', 'desktop:h-screen')}>
+    <section id="goods" className={classNames('py-56', 'desktop:h-screen')}>
       <h1
         className={classNames(
           'font-black',
@@ -34,22 +51,23 @@ export const Goods = () => {
       </h1>
       <div
         className={classNames(
+          'h-full',
           'py-48',
-          'min-h-full',
           'grid',
-          'grid-cols-[auto_min-content_min-content_min-content]',
-          'grid-rows-[auto_min-content]',
+          'grid-cols-[max-content_min-content_auto_auto]',
+          'grid-rows-[1fr_min-content]',
           'gap-40',
           'items-start',
           'box-border',
         )}
       >
         {/* キャラステッカーセット */}
-        <article className={classNames('min-w-[464px] h-full', BASE_STYLE)}>
+        <article className={classNames('h-full', BASE_STYLE)}>
           <header
             className={classNames(
               'flex',
               'justify-between',
+              'gap-16',
               'font-black',
               'items-center',
             )}
@@ -60,15 +78,24 @@ export const Goods = () => {
               800
             </p>
           </header>
-          <div></div>
+          <div className={classNames('h-full', 'relative')}>
+            <img
+              src={CharaStickerImg}
+              className={classNames(
+                'h-full',
+                'w-full',
+                'absolute',
+                'inset-0',
+                'm-auto',
+                'object-contain',
+              )}
+            />
+          </div>
         </article>
 
         {/* DM+マルチファイルセット */}
         <article
-          className={classNames(
-            'min-w-[464px] h-full col-start-2 col-end-4',
-            BASE_STYLE,
-          )}
+          className={classNames('h-full', 'col-start-2 col-end-4', BASE_STYLE)}
         >
           <header
             className={classNames(
@@ -76,6 +103,7 @@ export const Goods = () => {
               'justify-between',
               'font-black',
               'items-center',
+              'gap-16',
             )}
           >
             <h2 className={classNames(HEADER_STYLE)}>
@@ -86,13 +114,27 @@ export const Goods = () => {
               1000
             </p>
           </header>
-          <div></div>
+          <div className={classNames('h-full', 'relative')}>
+            <img
+              src={DmImg}
+              className={classNames(
+                'h-full',
+                'w-full',
+                'absolute',
+                'inset-0',
+                'm-auto',
+                'object-contain',
+              )}
+            />
+          </div>
         </article>
-
         {/* スマホストラップ */}
         <article
           className={classNames(
-            'min-w-[464px] h-full col-start-1 col-end-3',
+            'min-w-[464px] h-full',
+            'col-start-1 col-end-3',
+            'row-start-2',
+            'row-end-3',
             BASE_STYLE,
           )}
         >
@@ -102,6 +144,7 @@ export const Goods = () => {
               'justify-between',
               'font-black',
               'items-center',
+              'gap-16',
             )}
           >
             <h2 className={classNames(HEADER_STYLE)}>スマホストラップ</h2>
@@ -110,22 +153,30 @@ export const Goods = () => {
               2000
             </p>
           </header>
-          <div className={classNames('h-[120px]', 'bg-primary')}></div>
+          <div className={classNames('h-[7vh] aspect-[685/108]', 'relative')}>
+            <img
+              src={StrapImg}
+              className={classNames(
+                'h-full',
+                'w-full',
+                'absolute',
+                'inset-0',
+                'm-auto',
+                'object-contain',
+              )}
+            />
+          </div>
         </article>
 
         {/* ロゴステッカー */}
-        <article
-          className={classNames(
-            'min-w-[464px] h-full col-start-3 col-end-4',
-            BASE_STYLE,
-          )}
-        >
+        <article className={classNames('min-w-[464px] h-full', BASE_STYLE)}>
           <header
             className={classNames(
               'flex',
               'justify-between',
               'font-black',
               'items-center',
+              'gap-16',
             )}
           >
             <h2 className={classNames(HEADER_STYLE)}>ロゴステッカー</h2>
@@ -134,16 +185,37 @@ export const Goods = () => {
               200
             </p>
           </header>
-          <div></div>
+          <div className={classNames('h-[7vh]', 'relative')}>
+            <img
+              src={StickerImg}
+              className={classNames(
+                'h-full',
+                'w-full',
+                'absolute',
+                'inset-0',
+                'm-auto',
+                'object-contain',
+              )}
+            />
+          </div>
         </article>
-
         {/* 新刊セット */}
         <article
           className={classNames(
-            'min-w-[464px] h-full col-start-4 col-end-5 row-start-1 row-end-3',
+            'min-w-[464px] ',
+            'h-full',
             'bg-black',
             'py-32',
             'px-24',
+            'box-border',
+            'grid',
+            'gap-24',
+            'items-start',
+            'grid-rows-[min-content_1fr]',
+            'col-start-4',
+            'col-end-5',
+            'row-start-1',
+            'row-end-3',
           )}
         >
           <header
@@ -152,6 +224,7 @@ export const Goods = () => {
               'justify-between',
               'font-black',
               'items-center',
+              'gap-16',
             )}
           >
             <h2 className={classNames(HEADER_STYLE, 'text-white')}>
@@ -162,7 +235,19 @@ export const Goods = () => {
               3000
             </p>
           </header>
-          <div></div>
+          <div className={classNames('h-full', 'relative')}>
+            <img
+              src={SetImg}
+              className={classNames(
+                'h-full',
+                'w-full',
+                'absolute',
+                'inset-0',
+                'm-auto',
+                'object-contain',
+              )}
+            />
+          </div>
         </article>
       </div>
     </section>

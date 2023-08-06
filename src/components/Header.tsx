@@ -2,18 +2,44 @@ import { useState, useCallback } from 'react'
 import classNames from 'classnames'
 import { useMeasure, useMedia } from 'react-use'
 
+import LogoImg from '~/assets/images/logo.svg'
+import TextImg from '~/assets/images/text.svg'
+import CodeImg from '~/assets/images/code.svg'
+
 const MENU_ITEM = [
-  { title: 'TOP', href: '/' },
-  { title: 'ABOUT', href: '#about' },
-  { title: 'INFO', href: '/#information' },
-  { title: 'SPECIAL', href: '/#special' },
-  { title: 'CREDIT', href: '/#credit' },
+  { title: 'TOP', href: '/', id: 'top' },
+  { title: 'ABOUT', href: '#about', id: 'about' },
+  { title: 'INFO', href: '/#information', id: 'information' },
+  { title: 'GOODS', href: '/#goods', id: 'goods' },
+  { title: 'SPECIAL', href: '/#special', id: 'special' },
+  { title: 'CREDIT', href: '/#credit', id: 'credit' },
 ]
 
 export const Header = () => {
   const [isExtend, setIsExtend] = useState(true)
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
   const isMobile = useMedia('(max-width: 1024px)')
+
+  const handleClick = useCallback(
+    (id: string) => {
+      if (isMobile) {
+        return
+      }
+
+      if (id === 'top') {
+        history.pushState(null, '', window.location.pathname)
+      } else {
+        history.pushState(null, '', `${window.location.pathname}#${id}`)
+      }
+
+      window.dispatchEvent(
+        new CustomEvent('clickMenu', {
+          detail: { id },
+        }),
+      )
+    },
+    [isMobile],
+  )
 
   const handleClickExpend = useCallback(() => {
     setIsExtend((prev) => !prev)
@@ -46,7 +72,7 @@ export const Header = () => {
         className={classNames(
           'absolute',
           'top-16',
-          'left-[264px]',
+          'left-[260px]',
           'bg-black',
           'w-24',
           'h-24',
@@ -55,15 +81,23 @@ export const Header = () => {
       ></button>
 
       {/* コンテンツ */}
-      <div className={classNames('inline-block', 'h-full')}>
+      <div
+        className={classNames('inline-block', 'h-full', 'flex', 'items-start')}
+      >
+        {/* ロゴ・テキスト */}
         <div
           className={classNames(
             'w-[160px]',
-            'bg-black',
             'h-full',
-            'inline-block',
+            'inline-grid',
+            'gap-32',
+            'content-start',
           )}
-        ></div>
+        >
+          <img src={LogoImg} alt="466s ロゴ" />
+          <div className={classNames('h-2', 'w-full', 'bg-black')} />
+          <img className="pl-1" src={TextImg} alt="466sについて" />
+        </div>
         <div
           className={classNames(
             'h-full',
@@ -77,7 +111,7 @@ export const Header = () => {
         />
         <nav
           className={classNames(
-            'relative w-40 h-full transition-all duration-500',
+            'relative w-[32px] h-full transition-[width,_margin] duration-500',
             'inline-block',
             'mx-32 overflow-hidden',
             {
@@ -86,8 +120,7 @@ export const Header = () => {
           )}
           ref={ref}
         >
-          <div></div>
-          <ul
+          <div
             className={classNames(
               'absolute',
               'top-1/2',
@@ -96,27 +129,44 @@ export const Header = () => {
               '-translate-y-1/2',
               '-rotate-90',
               'origin-center',
-              'flex',
-              'justify-between',
-              'items-center',
               'pr-4',
               'transition-transform duration-500',
+              '@container',
               { '!-translate-x-[60%]': !isExtend },
             )}
             style={{ height: `${width}px`, width: `${height}px` }}
           >
-            <li className={classNames('bg-black', 'h-full', 'w-[20%]')}></li>
-            {MENU_ITEM.map((item) => (
-              <li key={item.title}>
-                <a
-                  href={item.href}
-                  className={classNames('font-black', 'text-[32px]')}
-                >
-                  {item.title}
-                </a>
+            <ul
+              className={classNames(
+                'h-full',
+                'w-full',
+                'flex',
+                '@[640px]:!justify-between',
+                'justify-end',
+                'items-center',
+              )}
+            >
+              <li className={classNames('h-full', '@[640px]:!block', 'hidden')}>
+                <img src={CodeImg} alt="バーコード" />
               </li>
-            ))}
-          </ul>
+              <div className={classNames('flex justify-end gap-16')}>
+                {MENU_ITEM.map((item) => (
+                  <li key={item.title}>
+                    <a
+                      href={item.href}
+                      className={classNames('font-black', 'text-[20px]')}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        handleClick(item.id)
+                      }}
+                    >
+                      {item.title}
+                    </a>
+                  </li>
+                ))}
+              </div>
+            </ul>
+          </div>
         </nav>
       </div>
 
@@ -134,7 +184,7 @@ export const Header = () => {
             'px-8',
             'py-16',
             'content-center',
-            'h-[160px]',
+            'h-[120px]',
             'w-full',
           )}
         >

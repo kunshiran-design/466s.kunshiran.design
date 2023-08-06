@@ -55,12 +55,12 @@ export const IconGenerator: React.FC = () => {
     }, [])
 
   return (
-    <div className={classNames('pr-32', 'grid', 'content-between')}>
+    <div className={classNames('pr-32', 'grid', 'content-between', 'gap-40')}>
       {/* 描画 */}
       <div
         ref={imageRef}
         className={classNames(
-          'w-[50vh] h-[50vh] shadow-[16px_16px_0px_0px_#000]',
+          'w-[40vh] h-[40vh] shadow-[16px_16px_0px_0px_#000]',
         )}
         style={{ backgroundColor: bgColor }}
       >
@@ -246,7 +246,7 @@ export const IconGenerator: React.FC = () => {
         <button
           onClick={handleGenerate}
           className={classNames(
-            'bg-primary text-center text-white py-20 font-bold text-[24px] border-4 border-black',
+            'bg-primary text-center text-white py-12 font-bold text-[24px] border-4 border-black',
           )}
         >
           DOWNLOAD
@@ -256,7 +256,7 @@ export const IconGenerator: React.FC = () => {
         <button
           onClick={handleGenerate}
           className={classNames(
-            'bg-white text-center py-20 font-bold border-4 text-[24px] border-black',
+            'bg-white text-center py-12 font-bold border-4 text-[24px] border-black',
           )}
         >
           SHARE

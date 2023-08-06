@@ -1,5 +1,7 @@
 import classNames from 'classnames'
 
+import CoverImg from '~/assets/images/cover.png'
+
 export const About = () => {
   return (
     <section
@@ -74,12 +76,20 @@ export const About = () => {
       >
         <div
           className={classNames(
-            'bg-black',
             'w-full',
             'h-full',
+            'border-black',
+            'border-4',
             'rotate-[10deg]',
+            'shadow-[16px_16px_0px_0px_#000]',
           )}
-        ></div>
+        >
+          <img
+            src={CoverImg}
+            alt="カバー画像"
+            className={classNames('object-cover', 'w-full', 'h-full')}
+          />
+        </div>
       </div>
     </section>
   )
