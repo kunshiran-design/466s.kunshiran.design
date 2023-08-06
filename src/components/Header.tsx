@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import { useState, useCallback } from 'react'
 import classNames from 'classnames'
 import { useMeasure, useMedia } from 'react-use'
@@ -18,6 +19,7 @@ const MENU_ITEM = [
 export const Header = () => {
   const [isExtend, setIsExtend] = useState(true)
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
+  const [heightRef, { height: boxHeight }] = useMeasure<HTMLElement>()
   const isMobile = useMedia('(max-width: 1024px)')
 
   const handleClick = useCallback(
@@ -66,6 +68,7 @@ export const Header = () => {
         'grid grid-rows-[auto_min-content] gap-24',
         'border-r-4 border-black',
       )}
+      ref={heightRef}
     >
       {/* 開閉ボタン */}
       <button
@@ -95,8 +98,16 @@ export const Header = () => {
           )}
         >
           <img src={LogoImg} alt="466s ロゴ" />
-          <div className={classNames('h-2', 'w-full', 'bg-black')} />
-          <img className="pl-1" src={TextImg} alt="466sについて" />
+          <div
+            className={classNames('h-2', 'w-full', 'bg-black', {
+              hidden: boxHeight < 1020,
+            })}
+          />
+          <img
+            className={classNames('pl-1', { hidden: boxHeight < 1020 })}
+            src={TextImg}
+            alt="466sについて"
+          />
         </div>
         <div
           className={classNames(

@@ -1,17 +1,11 @@
 import classNames from 'classnames'
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 
 export const Background = () => {
   const ref = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const elements = document.getElementsByTagName('section')
-
-    if (!elements) {
-      return
-    }
-
-    const observer = new IntersectionObserver((entries) => {
+  const handleObserve = useCallback(
+    (entries: IntersectionObserverEntry[]) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           if (!ref?.current) {
@@ -29,13 +23,32 @@ export const Background = () => {
           }
         }
       })
-    })
+    },
+    [ref],
+  )
+
+  const sleep = (msec: number) =>
+    new Promise((resolve) => setTimeout(resolve, msec))
+
+  const handleOnLoad = useCallback(() => {
+    const elements = document.getElementsByTagName('section')
+
+    if (!elements) {
+      return
+    }
+
+    const observer = new IntersectionObserver(handleObserve)
     Array.from(elements).forEach((el) => {
       observer.observe(el)
     })
+  }, [ref, document])
 
-    return () => observer.disconnect()
-  }, [ref])
+  useEffect(() => {
+    void (async () => {
+      await sleep(10)
+      handleOnLoad()
+    })()
+  }, [ref, document])
 
   return (
     <div

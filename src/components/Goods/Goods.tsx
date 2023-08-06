@@ -245,6 +245,7 @@ export const Goods = () => {
                 'inset-0',
                 'm-auto',
                 'object-contain',
+                'object-top',
               )}
             />
           </div>

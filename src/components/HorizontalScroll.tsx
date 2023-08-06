@@ -77,13 +77,10 @@ export const HorizontalScroll = ({ children }: HorizontalScrollProps) => {
     const offsetLeft = el?.offsetLeft ?? null
 
     if (offsetLeft === null || width === null) {
-      console.log('cannnot find', el, offsetLeft, width)
       return
     }
 
     const position = offsetLeft
-
-    console.log('position', offsetLeft)
 
     handleSetScroll(calcScroll(position - 400))
   }, [])

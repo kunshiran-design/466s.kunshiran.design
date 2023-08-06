@@ -83,7 +83,7 @@ export const IconGenerator: React.FC = () => {
         <div className={classNames('flex', 'gap-24')}>
           <h3 className={classNames('font-black text-[24px]')}>TYPE</h3>
           <div className={classNames('grid', 'gap-16 content-start', 'mt-8')}>
-            <label className={classNames('flex gap-8 items-center relative')}>
+            <label className={classNames('flex gap-8 items-center relative ')}>
               <input
                 type="radio"
                 value="squid"
@@ -91,6 +91,7 @@ export const IconGenerator: React.FC = () => {
                 onChange={handleChangeIconType}
                 className="hidden"
               />
+
               <div
                 className={classNames(
                   'w-20',
